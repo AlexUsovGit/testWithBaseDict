@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Товары</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+
+</head>
+<body>
+
+<div align="center">
+    <form method="post">
+
+
+    </form>
+</div>
+
+
+
+<div>
+    {{#products}}
+
+    <table width="331" border="1" cellpadding="2" cellspacing="0" style="    border-color: lightgray;">
+        <tbody>
+
+        <tr>
+
+            <td style="width: 111px;">Импортер в Беларусь</td>
+            <td colspan="10" style="width: 306px;">{{importer}}</td>
+
+        </tr>
+        <tr>
+            <td style="width: 111px;">Производитель</td>
+            <td colspan="10" style="width: 306px;">{{manufacturer}}</td>
+        </tr>
+        <tr>
+            <td style="width: 111px;">Тоговая марка</td>
+            <td colspan="10" style="width: 306px;">{{trademark}}</td>
+        </tr>
+        <tr>
+            <td style="width: 111px;">Наименование</td>
+            <td colspan="10" style="width: 306px;">{{productName}} {{gender}}</td>
+        </tr>
+        <tr>
+            <td style="width: 111px;">Артикул</td>
+            <td colspan="10" style="width: 306px;">{{article}}</td>
+        </tr>
+        <tr>
+            <td style="width: 111px;">Состав материала</td>
+            <td colspan="10" style="width: 306px;">{{composition}}</td>
+        </tr>
+        <tr>
+            <td rowspan="3" style="width: 111px;">Размер/ Обхват бедер/ Рост</td>
+            <td style="width: 18px;">42</td>
+            <td style="width: 18px;">44</td>
+            <td style="width: 27px;">46</td>
+            <td style="width: 27px;">48</td>
+            <td style="width: 27px;">50</td>
+            <td style="width: 27px;">52</td>
+            <td style="width: 27px;">54</td>
+            <td style="width: 27px;">56</td>
+            <td style="width: 27px;">58</td>
+            <td style="width: 27px;">60</td>
+        </tr>
+        <tr>
+            <td style="width: 18px;">92</td>
+            <td style="width: 18px;">96</td>
+            <td style="width: 27px;">100</td>
+            <td style="width: 27px;">104</td>
+            <td style="width: 27px;">108</td>
+            <td style="width: 27px;">112</td>
+            <td style="width: 27px;">116</td>
+            <td style="width: 27px;">120</td>
+            <td style="width: 27px;">124</td>
+            <td style="width: 27px;">128</td>
+        </tr>
+        <tr>
+            <td style="width: 18px;">&nbsp;</td>
+            <td style="width: 18px;">&nbsp;</td>
+            <td style="width: 27px;">146</td>
+            <td style="width: 27px;">152</td>
+            <td style="width: 27px;">158</td>
+            <td style="width: 27px;">164</td>
+            <td style="width: 27px;">170</td>
+            <td style="width: 27px;">176</td>
+            <td style="width: 27px;">&nbsp;</td>
+            <td style="width: 27px;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 111px;">Дата выпуска</td>
+            <td colspan="10" style="width: 306px;">{{dateArrive}}</td>
+        </tr>
+        <tr>
+            <td style="width: 111px;">Символы ухода</td>
+            <td colspan="10" style="width: 306px;">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td colspan="10" width="230">&nbsp;</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" style="width: 324px;">{{barcode}}</td>
+            <td colspan="3" style="width: 93px;">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td colspan="3" width="69">&nbsp;</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" style="width: 423px;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 111px;">Цена</td>
+            <td colspan="10" style="width: 306px;">{{retailPrice}} {{currency}}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div>
+        <form method="post" action="/getpdf">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+            <input type="text" name="filter" value="{{barcode}}">
+            <button type="submit">Открыть</button>
+        </form>
+            {{/products}}
+</div>
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Товары</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+
+</head>
+<body>
+
+<div align="center">
+    <form method="post">
+
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <input type="text" name="productName" placeholder="Наименование товара">
+        <input type="text" name="gender" placeholder="Пол">
+        <input type="text" name="size" placeholder="Размер">
+        <input type="text" name="trademark" placeholder="Торговая Марка">
+        <input type="text" name="importer" placeholder="Импортер">
+        <input type="text" name="manufacturer" placeholder="Производитель">
+        <input type="text" name="article" placeholder="Артикул">
+        <input type="text" name="code" placeholder="Внешний Код">
+        <input type="text" name="composition" placeholder="Состав">
+        <input type="text" name="season" placeholder="Сезон">
+        <input type="text" name="barcode" placeholder="Штрихкод">
+        <input type="text" name="note" placeholder="Примечание">
+        <input type="date" name="dateArrive" placeholder="Дата прихода">
+        <input type="text" name="quantity" placeholder="Количество">
+
+        <input type="text" name="importPrice" placeholder="Цена Ввоза">
+        <input type="text" name="coefficient" placeholder="Коэффициент">
+        <input type="text" name="retailPrice" placeholder="Цена Розничная">
+
+        <select  name="countryOfEntry" >
+            <option value="КНДР">КНДР</option>
+            <option value="РФ">РФ</option>
+            <option value="РБ">РБ</option>
+
+        </select>
+
+        <input type="text" name="currency" placeholder="Валюта">
+        <input type="text" name="course" placeholder="Курс">
+
+
+
+
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+
+
+
+
+    <div style="text-align:center; ">
+        <table align="center" border="1" cellpadding="2" cellspacing="0" style="width:1500px;     border-color: lightgray;">
+            <tbody>
+            <tr style="text-align:center; font-size:12px">
+                <td>Действие</td>
+                <td>Наименование товара</td>
+                <td>Пол</td>
+                <td>Размер</td>
+                <td>Торговая Марка</td>
+                <td>Импортер</td>
+                <td>Производитель</td>
+                <td>Артикул</td>
+                <td>Внешний Код</td>
+                <td>Состав</td>
+                <td>Сезон</td>
+                <td>Штрихкод</td>
+                <td>Примечание</td>
+                <td>Дата Прихода</td>
+                <td>Количество</td>
+                <td>Цена Ввоза</td>
+                <td>Коэффициент</td>
+                <td>Цена Розничная</td>
+                <td>Страна Ввоза</td>
+                <td>Валюта</td>
+                <td>Курс</td>
+            </tr>
+            {{#products}}
+                <div>
+
+
+
+            <tr style="text-align:left; font-size:9px">
+                <td>
+                    <form method="post" action="searchdoc">
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+                    <input type="text" name="filter" value="{{barcode}}">
+                    <button type="submit">Печать</button>
+                </form>
+
+
+                    <a href="documentpdf">Печать</a> </td>
+                <td>{{productName}}</td>
+                <td>{{gender}}</td>
+                <td>{{size}}</td>
+                <td>{{trademark}}</td>
+                <td>{{importer}}</td>
+                <td>{{manufacturer}}</td>
+                <td>{{article}}</td>
+                <td>{{code}}</td>
+                <td>{{composition}}</td>
+                <td>{{season}}</td>
+                <td>{{barcode}}</td>
+                <td>{{note}}</td>
+                <td>{{dateArrive}}</td>
+                <td>{{quantity}}</td>
+                <td>{{importPrice}}</td>
+                <td>{{coefficient}}</td>
+                <td>{{retailPrice}}</td>
+                <td>{{countryOfEntry}}</td>
+                <td>{{currency}}</td>
+                <td>{{course}}</td>
+
+
+            </tr>
+                </div>
+            {{/products}}
+            </tbody>
+        </table>
+
+    </div>
+
+
+</body>
+</html>
